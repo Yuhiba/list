@@ -25,7 +25,6 @@ char *my_revstr(char *str)
 
 void show_list(t_list *params)
 {
-	printf("before loop \n");
 	while (params != NULL)
 	{
 		printf("%s\n", params->data);
@@ -55,6 +54,8 @@ int main(int argc, char*argv[])
 	printf("%p\n", my_find_node_eq_in_list(params, data_ref, strcmp));
 	printf("---------------rm_all_node_eq-------------\n");
 	my_rm_all_eq_from_list(&params, data_ref, strcmp);
+	printf("------------------------------------------\n");
+	show_list(params);
 
 	return 0;
 }
