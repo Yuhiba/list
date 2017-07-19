@@ -3,16 +3,15 @@
 
 #include "my.h"
 
+//fonction qui retourne le premier noeud qui est égal à 'data_ref'.
+
 t_list *my_find_node_eq_in_list(t_list *begin, void *data_ref, int (*cmp)())
 {
 	while (begin != NULL)
 	{
 		if(cmp(data_ref, begin->data) == 0)
-		{
-			printf("%s\n", begin->data);
 			return begin;
-		}
 		begin = begin->next;
 	}
-	return 0;
+	return NULL;
 }

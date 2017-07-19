@@ -13,8 +13,8 @@ SRC			= src/main.c \
 
 INCLUDE 	= include
 
-TEST_SRC	= test/my_find_elm_eq_in_list_test.c \
-			src/my_find_elm_eq_in_list.c
+TEST_SRC	= test/my_find_node_eq_in_list_test.c \
+			src/my_find_node_eq_in_list.c
 
 TEST_OBJ	= $(TEST_SRC:.c=.o)
 
