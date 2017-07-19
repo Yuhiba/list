@@ -5,34 +5,57 @@
 #include "test.h"
 #include "my.h"
 
-void assert_not_equal_char(char *received, char* expected)
+void test_list_is_null() {
+	t_list *list = NULL;
+
+	assert_ptr_equal(my_find_elm_eq_in_list(list, NULL, NULL), NULL);
+}
+
+void test_no_elem_not_found_in_list()
 {
-	if (received != expected) {
-		printf("SUCCESS\n");
-	}
-	else {
-		printf("FAILURE value received: %s and expected: %s\n", received, expected);
-	}
+	t_list *list = NULL;
+	add_node("rtyj", &list);
+
+	assert_ptr_equal(my_find_elm_eq_in_list(list, "", strcmp), NULL);
+}
+
+void test_elem_found_in_first_node()
+{
+	t_list *list = NULL;
+	add_node("lapin", &list);
+
+	assert_ptr_equal(my_find_elm_eq_in_list(list, "lapin", strcmp), list->data);
+}
+
+void test_elem_found_in_last_node()
+{
+	t_list *list = NULL;
+
+	add_node("chat", &list);
+	add_node("souris", &list);
+	add_node("lapin", &list);
+
+	assert_ptr_equal(my_find_elm_eq_in_list(list, "chat", strcmp), list->next->next->data);
 }
 
 int main()
 {
-	t_list *list = NULL;
-	t_list *ref = NULL;
-	add_node("Lapin", &list);
-	//add_node("pouet", &list);
-	//assert_list_equal(list, ref, assert_equal);
-	int (*cmp)(int, int) = strcmp;
+	printf("test_list_is_null\n");
+	test_list_is_null();
+	printf("\n");
 
-	// si la list à tester est null.
-	printf("Is my list NULL in my_find_elm_eq_in_list\n");
-	my_find_elm_eq_in_list(list, "Lapin", cmp);
-	printf("cmp :%p\n", cmp);
-	//assert_list_equal(list, ref, as);
-	// si data est vide
+	printf("test_no_elem_not_found_in_list\n");
+	test_no_elem_not_found_in_list();
+	printf("\n");
 
-	// si aucune donnée égale
+	printf("test_elem_found_in_first_node\n");
+	test_elem_found_in_first_node();
+	printf("\n");
 
-	// si donnée égale trouvée.
-
+	printf("test_elem_found_in_last_node\n");
+	test_elem_found_in_last_node();
+	printf("\n");
 }
+
+
+

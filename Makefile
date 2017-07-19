@@ -8,7 +8,8 @@ SRC			= src/main.c \
 			src/my_apply_elm_eq_in_list.c \
 			src/my_find_elm_eq_in_list.c \
 			src/my_find_node_eq_in_list.c \
-			src/my_rm_all_eq_from_list.c
+			src/my_rm_all_eq_from_list.c \
+			src/my_add_list_to_list.c
 
 INCLUDE 	= include
 
@@ -33,7 +34,7 @@ $(NAME): 	$(OBJ)
 			$(CC) $(OBJ) -o $(NAME)
 
 test:		$(TEST_OBJ)
-			$(CC) $^ -ltest -L/vagrant/lib/test -L /vagrant/lib/my -lmy
+			$(CC) $^ -ltest -L/vagrant/lib/test -L/vagrant/lib/my -lmy
 
 clean:
 			$(RM) $(OBJ) $(TEST_OBJ)
