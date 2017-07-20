@@ -3,14 +3,14 @@
 
 #include "my.h"
 
-// fonction qui supprime un noeud au debut, au milieux, à la fin de la liste chainée et si
-// plusieurs noeuds se suivent les uns au autres.
+// fonction qui supprime tout(s) les/les noeud(s), soit au début, soit au milieu
+// et toit à la fin de ma liste simplement chaînée.
 
 void rm_node(t_list **begin, t_list **prev, t_list **tmp)
 {
 	t_list *next;
 
-	// free le premier et/ou le dernier noeud.
+	// free le/les premier(s) et/ou le/les dernier(s) noeud(s).
 	if (*prev == *tmp)
 	{
 		next = (*tmp)->next;
@@ -18,7 +18,7 @@ void rm_node(t_list **begin, t_list **prev, t_list **tmp)
 		*tmp = next;
 		*begin = next;
 	}
-	// free le noeud du milieu.
+	// free le/les noeud(s) du milieu.
 	else
 	{
 		(*prev)->next = (*tmp)->next;

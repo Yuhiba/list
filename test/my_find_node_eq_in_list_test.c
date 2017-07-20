@@ -9,6 +9,7 @@ void test_list_is_null() {
 	t_list *list = NULL;
 
 	assert_ptr_equal(my_find_node_eq_in_list(list, NULL, NULL), NULL);
+	free(list);
 }
 
 void test_no_node_not_found_in_list()
@@ -17,6 +18,7 @@ void test_no_node_not_found_in_list()
 	add_node("rtyj", &list);
 
 	assert_ptr_equal(my_find_elm_eq_in_list(list, "", strcmp), NULL);
+	free(list);
 }
 
 void test_found_first_node()
@@ -25,6 +27,7 @@ void test_found_first_node()
 	add_node("lapin", &list);
 
 	assert_ptr_equal(my_find_node_eq_in_list(list, "lapin", strcmp), list);
+	free(list);
 }
 
 void test_found_last_node()
@@ -36,6 +39,7 @@ void test_found_last_node()
 	add_node("lapin", &list);
 
 	assert_ptr_equal(my_find_node_eq_in_list(list, "chat", strcmp), list->next->next);
+	free(list);
 }
 
 int main()
